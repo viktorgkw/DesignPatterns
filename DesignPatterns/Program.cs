@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
+using DesignPatterns.Creational.Prototype;
 using DesignPatterns.Creational.SimpleFactory;
 
 Console.WriteLine("Simple Factory:");
@@ -39,3 +40,11 @@ Console.WriteLine(burger.HasCheese());
 Console.WriteLine(burger.HasLettuce());
 Console.WriteLine(burger.HasPepperoni());
 Console.WriteLine(burger.HasTomato());
+
+Console.WriteLine("\nPrototype:");
+var original = new Dummy("Josh");
+Console.WriteLine(original.Name);
+
+var cloned = original.Clone();
+cloned.Name = "Stan";
+Console.WriteLine(cloned.Name);
