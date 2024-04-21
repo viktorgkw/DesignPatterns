@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Creational.AbstractFactory;
+using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
 using DesignPatterns.Creational.SimpleFactory;
 
@@ -24,3 +25,17 @@ var ironDoorFactory = new IronDoorFactory();
 var ironDoor = ironDoorFactory.MakeDoor();
 var ironDoorMaker = ironDoorFactory.GetDoorMaker();
 Console.WriteLine($"{ironDoorMaker.MakeType()}. {ironDoor.GetDescription()}");
+
+
+Console.WriteLine("\nBuilder:");
+var burger = new BurgerBuilder(4)
+    .AddCheese()
+    .AddPepperoni()
+    .AddTomato()
+    .Build();
+
+Console.WriteLine(burger.GetDescription());
+Console.WriteLine(burger.HasCheese());
+Console.WriteLine(burger.HasLettuce());
+Console.WriteLine(burger.HasPepperoni());
+Console.WriteLine(burger.HasTomato());
