@@ -2,5 +2,5 @@
 
 public interface IKeyboard
 {
-    public string GetLayout();
+    public void GetLayout();
 }

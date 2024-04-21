@@ -5,7 +5,7 @@ using DesignPatterns.Creational.SimpleFactory;
 
 Console.WriteLine("Simple Factory:");
 var keyboard = KeyboardFactory.CreateKeyboard(true, "60%");
-Console.WriteLine($"Keyboard's Layout -> {keyboard.GetLayout()}");
+keyboard.GetLayout();
 
 
 Console.WriteLine("\nFactory Method:");
