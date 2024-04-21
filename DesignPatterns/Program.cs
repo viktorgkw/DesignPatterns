@@ -3,6 +3,7 @@ using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
 using DesignPatterns.Creational.Prototype;
 using DesignPatterns.Creational.SimpleFactory;
+using DesignPatterns.Creational.Singleton;
 
 Console.WriteLine("Simple Factory:");
 var keyboard = KeyboardFactory.CreateKeyboard(true, "60%");
@@ -48,3 +49,15 @@ Console.WriteLine(original.Name);
 var cloned = original.Clone();
 cloned.Name = "Stan";
 Console.WriteLine(cloned.Name);
+
+
+Console.WriteLine("\nSingleton:");
+// This is invalid:
+// var appConfiguration = new AppConfiguration();
+var appConfig1 = AppConfiguration.GetInstance();
+var appConfig2 = AppConfiguration.GetInstance();
+var appConfig3 = AppConfiguration.GetInstance();
+Console.WriteLine(
+    appConfig1 == appConfig2 &&
+    appConfig1 == appConfig3 &&
+    appConfig2 == appConfig3);
