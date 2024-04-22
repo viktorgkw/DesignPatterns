@@ -8,6 +8,7 @@ using DesignPatterns.Structural.Adapter;
 using DesignPatterns.Structural.Bridge;
 using DesignPatterns.Structural.Composite;
 using DesignPatterns.Structural.Decorator;
+using DesignPatterns.Structural.Facade;
 using System.ComponentModel.Design;
 
 Console.WriteLine("Simple Factory:");
@@ -113,3 +114,9 @@ Console.WriteLine(whipCoffee.GetDescription());
 var vanillaCoffee = new VanillaCoffee(whipCoffee);
 Console.WriteLine($"{vanillaCoffee.GetCost():c}");
 Console.WriteLine(vanillaCoffee.GetDescription());
+
+
+Console.WriteLine("\nFacade:");
+var computer = new ComputerFacade(new Computer());
+computer.TurnOn();
+computer.TurnOff();
