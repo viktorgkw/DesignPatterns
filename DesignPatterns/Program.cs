@@ -6,6 +6,8 @@ using DesignPatterns.Creational.SimpleFactory;
 using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter;
 using DesignPatterns.Structural.Bridge;
+using DesignPatterns.Structural.Composite;
+using System.ComponentModel.Design;
 
 Console.WriteLine("Simple Factory:");
 var keyboard = KeyboardFactory.CreateKeyboard(true, "60%");
@@ -81,3 +83,14 @@ var careers = new Home(lightTheme);
 
 Console.WriteLine(about.GetContent());
 Console.WriteLine(careers.GetContent());
+
+
+Console.WriteLine("\nComposite:");
+var developer = new Dev("Hector", 9999);
+var manager = new Manager("Doco", 11111);
+
+var organization = new Organization();
+organization.AddEmployee(developer);
+organization.AddEmployee(manager);
+
+Console.WriteLine($"Net Salary of Employees in Organization is {organization.GetNetSalaries():c}");
