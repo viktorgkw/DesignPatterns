@@ -5,6 +5,7 @@ using DesignPatterns.Creational.Prototype;
 using DesignPatterns.Creational.SimpleFactory;
 using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter;
+using DesignPatterns.Structural.Bridge;
 
 Console.WriteLine("Simple Factory:");
 var keyboard = KeyboardFactory.CreateKeyboard(true, "60%");
@@ -69,3 +70,14 @@ var wildDog = new WildDog();
 var wildDogAdapter = new WildDogAdapter(wildDog);
 var hunter = new Hunter();
 hunter.Hunt(wildDogAdapter);
+
+
+Console.WriteLine("\nBridge:");
+var darkTheme = new DarkTheme();
+var lightTheme = new LightTheme();
+
+var about = new About(darkTheme);
+var careers = new Home(lightTheme);
+
+Console.WriteLine(about.GetContent());
+Console.WriteLine(careers.GetContent());
