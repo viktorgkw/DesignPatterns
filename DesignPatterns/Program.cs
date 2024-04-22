@@ -10,6 +10,7 @@ using DesignPatterns.Structural.Composite;
 using DesignPatterns.Structural.Decorator;
 using DesignPatterns.Structural.Facade;
 using DesignPatterns.Structural.Flyweight;
+using DesignPatterns.Structural.Proxy;
 using System.ComponentModel.Design;
 
 Console.WriteLine("Simple Factory:");
@@ -132,3 +133,11 @@ teaShop.TakeOrder("more milk", 2);
 teaShop.TakeOrder("without sugar", 5);
 
 teaShop.Serve();
+
+
+Console.WriteLine("\nProxy:");
+var securedDoor = new SecuredDoor(new LabDoor());
+securedDoor.Open();
+securedDoor.Open("invalid");
+securedDoor.Open("$ecr@t");
+securedDoor.Close();
