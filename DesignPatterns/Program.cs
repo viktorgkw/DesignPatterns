@@ -9,6 +9,7 @@ using DesignPatterns.Structural.Bridge;
 using DesignPatterns.Structural.Composite;
 using DesignPatterns.Structural.Decorator;
 using DesignPatterns.Structural.Facade;
+using DesignPatterns.Structural.Flyweight;
 using System.ComponentModel.Design;
 
 Console.WriteLine("Simple Factory:");
@@ -120,3 +121,14 @@ Console.WriteLine("\nFacade:");
 var computer = new ComputerFacade(new Computer());
 computer.TurnOn();
 computer.TurnOff();
+
+
+Console.WriteLine("\nFlyweight:");
+var teaMaker = new TeaMaker();
+var teaShop = new TeaShop(teaMaker);
+
+teaShop.TakeOrder("less sugar", 1);
+teaShop.TakeOrder("more milk", 2);
+teaShop.TakeOrder("without sugar", 5);
+
+teaShop.Serve();
