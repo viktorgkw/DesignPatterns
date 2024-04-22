@@ -7,6 +7,7 @@ using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter;
 using DesignPatterns.Structural.Bridge;
 using DesignPatterns.Structural.Composite;
+using DesignPatterns.Structural.Decorator;
 using System.ComponentModel.Design;
 
 Console.WriteLine("Simple Factory:");
@@ -94,3 +95,21 @@ organization.AddEmployee(developer);
 organization.AddEmployee(manager);
 
 Console.WriteLine($"Net Salary of Employees in Organization is {organization.GetNetSalaries():c}");
+
+
+Console.WriteLine("\nDecorator:");
+var myCoffee = new SimpleCoffee();
+Console.WriteLine($"{myCoffee.GetCost():c}");
+Console.WriteLine(myCoffee.GetDescription());
+
+var milkCoffee = new MilkCoffee(myCoffee);
+Console.WriteLine($"{milkCoffee.GetCost():c}");
+Console.WriteLine(milkCoffee.GetDescription());
+
+var whipCoffee = new WhipCoffee(milkCoffee);
+Console.WriteLine($"{whipCoffee.GetCost():c}");
+Console.WriteLine(whipCoffee.GetDescription());
+
+var vanillaCoffee = new VanillaCoffee(whipCoffee);
+Console.WriteLine($"{vanillaCoffee.GetCost():c}");
+Console.WriteLine(vanillaCoffee.GetDescription());

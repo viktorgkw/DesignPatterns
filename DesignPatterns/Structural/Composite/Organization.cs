@@ -1,5 +1,8 @@
 ﻿namespace DesignPatterns.Structural.Composite;
 
+/// <summary>
+/// Composite pattern lets clients treat the individual objects in a uniform manner.
+/// </summary>
 public class Organization
 {
     private ICollection<IEmployee> _employees = [];
