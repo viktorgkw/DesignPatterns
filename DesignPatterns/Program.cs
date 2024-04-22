@@ -4,6 +4,7 @@ using DesignPatterns.Creational.FactoryMethod;
 using DesignPatterns.Creational.Prototype;
 using DesignPatterns.Creational.SimpleFactory;
 using DesignPatterns.Creational.Singleton;
+using DesignPatterns.Structural.Adapter;
 
 Console.WriteLine("Simple Factory:");
 var keyboard = KeyboardFactory.CreateKeyboard(true, "60%");
@@ -61,3 +62,10 @@ Console.WriteLine(
     appConfig1 == appConfig2 &&
     appConfig1 == appConfig3 &&
     appConfig2 == appConfig3);
+
+
+Console.WriteLine("\nAdapter:");
+var wildDog = new WildDog();
+var wildDogAdapter = new WildDogAdapter(wildDog);
+var hunter = new Hunter();
+hunter.Hunt(wildDogAdapter);
