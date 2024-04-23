@@ -3,6 +3,7 @@ using DesignPatterns.Behavioral.Command;
 using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Behavioral.Mediator;
 using DesignPatterns.Behavioral.Memento;
+using DesignPatterns.Behavioral.Observer;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -202,3 +203,15 @@ editor.Type("This is third.");
 Console.WriteLine(editor.Content);
 editor.Restore();
 Console.WriteLine(editor.Content);
+
+
+Console.WriteLine("\nObserver:");
+var josh = new JobSeeker("Josh");
+var teddy = new JobSeeker("Teddy");
+
+var jobPostings = new JobPostings();
+jobPostings.Subscribe(josh);
+jobPostings.Subscribe(teddy);
+
+jobPostings.AddJob(new JobPost("Software Engineer"));
+jobPostings.AddJob(new JobPost("Hygienist"));
