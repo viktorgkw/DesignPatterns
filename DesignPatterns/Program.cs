@@ -2,6 +2,7 @@
 using DesignPatterns.Behavioral.Command;
 using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Behavioral.Mediator;
+using DesignPatterns.Behavioral.Memento;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -166,7 +167,7 @@ var remote = new RemoteControl();
 remote.Submit(turnOn);
 remote.Submit(turnOff);
 
-Console.WriteLine("\nIterator");
+Console.WriteLine("\nIterator:");
 var stations = new StationList();
 
 var station1 = new RadioStation(89);
@@ -181,7 +182,7 @@ foreach (var x in stations)
     Console.WriteLine(x.GetFrequecy());
 }
 
-Console.WriteLine("\nMediator");
+Console.WriteLine("\nMediator:");
 var mediator = new ChatRoom();
 
 var john = new User("John", mediator);
@@ -189,3 +190,15 @@ var jane = new User("Jane", mediator);
 
 john.Send("Hi there!");
 jane.Send("Hey!");
+
+Console.WriteLine("\nMemento:");
+
+var editor = new Editor();
+editor.Type("This is the first sentence. ");
+editor.Type("This is second. ");
+editor.Save();
+editor.Type("This is third.");
+
+Console.WriteLine(editor.Content);
+editor.Restore();
+Console.WriteLine(editor.Content);
