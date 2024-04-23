@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Behavioral.ChainOfResponsibility;
+using DesignPatterns.Behavioral.Command;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -154,3 +155,11 @@ paypal.SetNext(bitcoin);
 bank.Pay(259);
 
 Console.WriteLine("\nCommand:");
+var bulb = new Bulb();
+
+var turnOn = new TurnOn(bulb);
+var turnOff = new TurnOff(bulb);
+
+var remote = new RemoteControl();
+remote.Submit(turnOn);
+remote.Submit(turnOff);
