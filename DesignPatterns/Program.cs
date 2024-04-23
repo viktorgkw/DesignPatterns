@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.Behavioral.ChainOfResponsibility;
 using DesignPatterns.Behavioral.Command;
 using DesignPatterns.Behavioral.Iterator;
+using DesignPatterns.Behavioral.Mediator;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -181,3 +182,10 @@ foreach (var x in stations)
 }
 
 Console.WriteLine("\nMediator");
+var mediator = new ChatRoom();
+
+var john = new User("John", mediator);
+var jane = new User("Jane", mediator);
+
+john.Send("Hi there!");
+jane.Send("Hey!");
