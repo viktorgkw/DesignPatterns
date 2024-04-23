@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.Behavioral.ChainOfResponsibility;
 using DesignPatterns.Behavioral.Command;
+using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -163,3 +164,20 @@ var turnOff = new TurnOff(bulb);
 var remote = new RemoteControl();
 remote.Submit(turnOn);
 remote.Submit(turnOff);
+
+Console.WriteLine("\nIterator");
+var stations = new StationList();
+
+var station1 = new RadioStation(89);
+var station2 = new RadioStation(101);
+var station3 = new RadioStation(102);
+stations.Add(station1);
+stations.Add(station2);
+stations.Add(station3);
+
+foreach (var x in stations)
+{
+    Console.WriteLine(x.GetFrequecy());
+}
+
+Console.WriteLine("\nMediator");
