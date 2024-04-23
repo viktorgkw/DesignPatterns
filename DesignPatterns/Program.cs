@@ -4,6 +4,7 @@ using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Behavioral.Mediator;
 using DesignPatterns.Behavioral.Memento;
 using DesignPatterns.Behavioral.Observer;
+using DesignPatterns.Behavioral.Visitor;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
@@ -215,3 +216,15 @@ jobPostings.Subscribe(teddy);
 
 jobPostings.AddJob(new JobPost("Software Engineer"));
 jobPostings.AddJob(new JobPost("Hygienist"));
+
+
+Console.WriteLine("\nVisitor:");
+var monkey = new Monkey();
+var lion = new Lion();
+var dolphin = new Dolphin();
+
+var speak = new Speak();
+
+monkey.Accept(speak);
+lion.Accept(speak);
+dolphin.Accept(speak);
