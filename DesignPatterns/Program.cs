@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Creational.AbstractFactory;
+﻿using DesignPatterns.Behavioral.ChainOfResponsibility;
+using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
 using DesignPatterns.Creational.FactoryMethod;
 using DesignPatterns.Creational.Prototype;
@@ -11,7 +12,6 @@ using DesignPatterns.Structural.Decorator;
 using DesignPatterns.Structural.Facade;
 using DesignPatterns.Structural.Flyweight;
 using DesignPatterns.Structural.Proxy;
-using System.ComponentModel.Design;
 
 Console.WriteLine("Simple Factory:");
 var keyboard = KeyboardFactory.CreateKeyboard(true, "60%");
@@ -141,3 +141,16 @@ securedDoor.Open();
 securedDoor.Open("invalid");
 securedDoor.Open("$ecr@t");
 securedDoor.Close();
+
+
+Console.WriteLine("\nChain Of Responsibility:");
+var bank = new Bank(100);
+var paypal = new Paypal(200);
+var bitcoin = new Bitcoin(300);
+
+bank.SetNext(paypal);
+paypal.SetNext(bitcoin);
+
+bank.Pay(259);
+
+Console.WriteLine("\nCommand:");
