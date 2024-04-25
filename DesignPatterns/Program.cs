@@ -6,6 +6,7 @@ using DesignPatterns.Behavioral.Memento;
 using DesignPatterns.Behavioral.Observer;
 using DesignPatterns.Behavioral.State;
 using DesignPatterns.Behavioral.Strategy;
+using DesignPatterns.Behavioral.TemplateMethod;
 using DesignPatterns.Behavioral.Visitor;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
@@ -251,3 +252,11 @@ textEditor.Type("Third Line");
 textEditor.SetState(new LowerCase());
 textEditor.Type("Fourth Line");
 textEditor.Type("Fifthe Line");
+
+
+Console.WriteLine("\nTemplate Method:");
+var androidBuilder = new AndroidBuilder();
+androidBuilder.Build();
+
+var iosBuilder = new IosBuilder();
+iosBuilder.Build();
