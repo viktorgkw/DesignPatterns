@@ -4,6 +4,7 @@ using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Behavioral.Mediator;
 using DesignPatterns.Behavioral.Memento;
 using DesignPatterns.Behavioral.Observer;
+using DesignPatterns.Behavioral.State;
 using DesignPatterns.Behavioral.Strategy;
 using DesignPatterns.Behavioral.Visitor;
 using DesignPatterns.Creational.AbstractFactory;
@@ -237,3 +238,16 @@ var sorter = new Sorter(new BubbleSortStrategy());
 sorter.Sort(unsortedList);
 sorter = new Sorter(new QuickSortStrategy());
 sorter.Sort(unsortedList);
+
+
+Console.WriteLine("\nState:");
+var textEditor = new TextEditor();
+textEditor.Type("First line");
+
+textEditor.SetState(new UpperCase());
+textEditor.Type("Second Line");
+textEditor.Type("Third Line");
+
+textEditor.SetState(new LowerCase());
+textEditor.Type("Fourth Line");
+textEditor.Type("Fifthe Line");
