@@ -4,6 +4,7 @@ using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Behavioral.Mediator;
 using DesignPatterns.Behavioral.Memento;
 using DesignPatterns.Behavioral.Observer;
+using DesignPatterns.Behavioral.Strategy;
 using DesignPatterns.Behavioral.Visitor;
 using DesignPatterns.Creational.AbstractFactory;
 using DesignPatterns.Creational.Builder;
@@ -228,3 +229,11 @@ var speak = new Speak();
 monkey.Accept(speak);
 lion.Accept(speak);
 dolphin.Accept(speak);
+
+
+Console.WriteLine("\nStrategy:");
+var unsortedList = new List<int> { 1, 10, 2, 16, 19 };
+var sorter = new Sorter(new BubbleSortStrategy());
+sorter.Sort(unsortedList);
+sorter = new Sorter(new QuickSortStrategy());
+sorter.Sort(unsortedList);
